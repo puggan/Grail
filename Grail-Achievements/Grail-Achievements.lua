@@ -6988,7 +6988,6 @@ end
 for _, faction in pairs(supportedFactions) do
 	for _, expansion in pairs(expansions) do
 		for _, achievement in pairs(Grail.loremasterAchievements[faction][expansion]) do
-			if not tContains(achievementsDone, achievement) then
 				local newTable = {}
 				for _, questId in pairs(Grail.indexedQuests[achievement]) do
 					--	This check is made because processing of something earlier in the "master" list could result in a prerequisite being
@@ -7003,7 +7002,6 @@ for _, faction in pairs(supportedFactions) do
 				Grail.indexedQuests[achievement] = newTable
 				Grail.loremasterQuests[achievementsToZoneMapping[achievement]] = newTable
 				tinsert(achievementsDone, achievement)
-			end
 		end
 	end
 end
